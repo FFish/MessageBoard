@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Message Board</title>
+    <link rel="stylesheet" href="../static/style.css" type="text/css"/>
+</head>
 <body>
-    <form action="../add" method="post">
-	<input type="text" name="title"/>
-	</br>
-	<textarea row="3" cols="20" name="content"></textarea>
-	</br>
-	<input type="submit" value="Submit"/>
-    </form>
+<form action="../add" method="post">
+    <input type="text" name="title"/>
+    <br/>
+    <textarea cols="20" name="content"></textarea>
+    <br/>
+    <input type="submit" value="Share"/>
+</form>
+<ul class="entries">
+    {% for entry in entries %}
+    <li><h2>{{entry.title}}</h2>{{entry.text}}</li>
+    {% endfor %}
+</ul>
 </body>
 </html>
